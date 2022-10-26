@@ -36,7 +36,7 @@ function AddRow() {
           <td>${book.name}</td>
           <td>${book.author}</td>
           <td>${book.pages}</td>
-          <td>${book.read}</td>
+          <td><button class="readBook">${book.read}</button></td>
           <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `;
@@ -52,11 +52,15 @@ button.addEventListener("click", addBookToLibrary);
 button.addEventListener("click", AddRow);
 
 
-// Give the Delete button an onlick event to delete the row containing the book.
-let tableDel = document.querySelector("table");
-tableDel.addEventListener("click", OnDeleteRow);
 
-// Function to delete the row
+// Give the buttons of the table onclick events
+let tableDel = document.querySelector("table");
+tableDel.addEventListener("click", ChangeStatus); // Give the read button an onclick event to change the status.
+tableDel.addEventListener("click", OnDeleteRow); // Give the Delete button an onlick event to delete the row containing the book.
+
+
+
+// Function to delete the row!
 function OnDeleteRow(e) {
   if (!e.target.classList.contains("deleteBtn")) {
     return;
@@ -65,6 +69,20 @@ function OnDeleteRow(e) {
   btn.closest("tr").remove();
 }
 
+
+// Function to change the status of the read button!
+function ChangeStatus(e) {
+  if (!e.target.classList.contains("readBook")) {
+    return;
+  }
+  const formBtn = e.target;
+  if (formBtn.innerText == "Yes") {
+    formBtn.innerText = "No"
+  }
+  else {
+    formBtn.innerText = "Yes"
+  }
+}
 
 
  
