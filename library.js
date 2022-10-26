@@ -37,6 +37,7 @@ function AddRow() {
           <td>${book.author}</td>
           <td>${book.pages}</td>
           <td>${book.read}</td>
+          <td><button class="deleteBtn">Delete</button></td>
         </tr>
         `;
       tBody.insertAdjacentHTML("afterbegin", htmlBook);
@@ -50,6 +51,19 @@ let button = document.getElementById("add-btn");
 button.addEventListener("click", addBookToLibrary);
 button.addEventListener("click", AddRow);
 
+
+// Give the Delete button an onlick event to delete the row containing the book.
+let tableDel = document.querySelector("table");
+tableDel.addEventListener("click", OnDeleteRow);
+
+// Function to delete the row
+function OnDeleteRow(e) {
+  if (!e.target.classList.contains("deleteBtn")) {
+    return;
+  }
+  const btn = e.target;
+  btn.closest("tr").remove();
+}
 
 
 
