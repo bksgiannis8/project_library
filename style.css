@@ -30,6 +30,7 @@ body {
     padding-top: 30%;
     justify-content: center;
     justify-items: center;
+    width: 250px;
     
 }
 
@@ -54,6 +55,7 @@ input {
     width: 1fr;
 }
 
+
 .right-side button {
     background-color: cornflowerblue;
     color: white;
@@ -73,13 +75,21 @@ form {
 /* Header */
 
 .header {
-    height: 30%;
+    height: 20%;
 }
 
 .header p {
     text-align: center;
-    line-height: 100px;
+}
+
+.down {
+    font-size: large;
+    margin-bottom: 0;
+}
+
+.up {
     font-size: xx-large;
+
 }
 
 
@@ -89,15 +99,15 @@ form {
 .main {
     padding-left: 5%;
     padding-right: 5%;
+    max-height: 100%;
 }
 
 table {
     border-collapse: collapse;
     font-size: larger;
     width: 100%;
-    overflow: hidden;
-    max-height: 100% !important;
-    word-break: break-all;
+    max-height: 300px !important;
+    table-layout: fixed;
 }
 
 table th {
